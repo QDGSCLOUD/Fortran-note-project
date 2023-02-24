@@ -677,4 +677,27 @@ recursive function fact(n) result(ans)
 end function fact
 
 
+! ==========递归子例行
+program recursive_sub
+    implicit none 
+    integer f,n 
+    external fact
+    print*,'请输入n(0<n<10)'
+    read *,n 
+    call fact(f,n)
+    write (*,"(1x,i2,'!=',i6)")n,f 
+
+end program
+
+recursive subroutine fact(f,j)
+    implicit none
+    integer f, j
+    if (j==1) then
+        f= 1
+    else
+    call fact(f,(j-1))
+    f = f*j
+    end if
+end subroutine fact
+
 
