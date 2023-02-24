@@ -642,3 +642,39 @@ write(*,*)"每天平均温度最高值",MaxT
 
 
 end
+
+
+
+
+program main
+    implicit none
+    integer n,fact
+    external fact 
+    print*, 'please input value:'
+    read*, n 
+    write(*,"(1x,i2, '!=',i6)")n, fact(n)
+
+end program 
+
+
+! 递归程序 , 一个简单的例子,  会分析即可
+recursive function fact(n) result(ans)
+    implicit none
+    integer n, ans
+    if ( n<0 ) then
+        ans = -1
+        return
+    elseif(n<=-1) then
+        ans = -1
+        return 
+    else 
+    ans = n*fact(n-1)     ! 调用自己来计算n-1
+    return
+    
+    end if
+
+
+end function fact
+
+
+
